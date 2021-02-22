@@ -16,10 +16,6 @@ pipeline {
         }      
       }
       
-  }
-}
-
-      
          stage('Provision infrastructure') {
             steps {
                 dir("") 
