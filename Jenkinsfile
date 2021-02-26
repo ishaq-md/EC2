@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('checkout'){
             steps {
-                git branch: 'master', url: 'https://github.com/ishaqmdgcp/EC2.git'
+                git branch: 'dev', url: 'https://github.com/ishaqmdgcp/EC2.git'
             }
         }
 		
