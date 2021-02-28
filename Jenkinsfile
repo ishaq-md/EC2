@@ -9,12 +9,14 @@ pipeline {
         }
 		
       
-     stage('TF Init&Plan') {
-        steps {
-          sh 'terraform init'
-          sh 'terraform plan'
-        }      
-      }
+     stage('Set Terraform path') {
+            steps {
+                script {
+                    def tfHome = tool name: 'Terraform'
+                    env.PATH = "${tfHome}:${env.PATH}"
+                }
+	    }
+     }
       
          stage('Provision infrastructure') {
             steps {
