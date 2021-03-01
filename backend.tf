@@ -1,6 +1,7 @@
 terraform {
-  backend "gcs" {
+  backend "s3" {
     bucket = "backup-state-terraform"
-    prefix = "terraform"
+    key    = "terraform/test"
+    region = "us-east-1"
   }
 }
