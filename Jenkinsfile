@@ -18,7 +18,7 @@ pipeline {
         stage('checkout') {
             steps {
                  script{
-                        dir("terraform")
+                        dir("ec2")
                         {
                             git "https://github.com/ishaqmdgcp/EC2.git"
                         }
