@@ -7,6 +7,11 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/ishaqmdgcp/EC2.git'
             }
         }
+
+environment {
+        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    }
 		
       
      stage('TF Init&Plan') {
@@ -18,7 +23,7 @@ pipeline {
       
          stage('Provision infrastructure') {
             steps {
-                dir("") 
+                dir("terraform") 
                 {
                 sh 'terraform init'
                 sh 'terraform plan'
