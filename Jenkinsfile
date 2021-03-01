@@ -13,14 +13,7 @@ environment {
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
 		
-      
-     stage('TF Init&Plan') {
-        steps {
-          sh 'terraform init'
-          sh 'terraform plan'
-        }      
-      }
-      
+         
          stage('Provision infrastructure') {
             steps {
                 dir("terraform") 
