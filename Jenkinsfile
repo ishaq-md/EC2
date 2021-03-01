@@ -1,11 +1,12 @@
 pipeline {
 
-    parameters {
+    /*parameters {
         string(name: 'environment', defaultValue: 'ec2', description: 'Workspace/environment file to use for deployment')
         string(name: 'apply', defaultValue: 'apply', description: 'plan, apply, destroy -force, plan -destroy')
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
 
     }
+    */
 
 
      environment {
