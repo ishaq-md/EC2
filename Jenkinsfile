@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage ('checkout'){
             steps {
-                git branch: 'dev', url: 'https://github.com/ishaqmdgcp/EC2.git'
+                git branch: 'master', url: 'https://github.com/ishaqmdgcp/EC2.git'
             }
         }
-		
       
-     stage('Set Terraform path') {
+
+		stage('Set Terraform path') {
             steps {
                 script {
                     def tfHome = tool name: 'Terraform'
@@ -20,17 +20,14 @@ pipeline {
             }
         }
         
-      
          stage('Provision infrastructure') {
-            steps {
-                dir("") 
-                {
+		 steps {            
                 sh 'terraform init'
                 sh 'terraform plan'
-                sh 'terraform apply -auto-approve'
+                sh 'terraform destroy -auto-approve'
                              
              
-            }
+            
         }
         }
         
