@@ -2,6 +2,7 @@ pipeline {
 
     parameters {
         string(name: 'environment', defaultValue: 'ec2', description: 'Workspace/environment file to use for deployment')
+        string(name: 'apply', defaultValue: 'apply', description: 'plan, apply, destroy -force, plan -destroy')
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
 
     }
@@ -32,7 +33,7 @@ pipeline {
                 {
                 sh 'terraform init'
                 sh 'terraform plan'
-                sh 'terraform apply -auto-approve'
+                sh 'terraform destroy -auto-approve'
             }
         }
     }
